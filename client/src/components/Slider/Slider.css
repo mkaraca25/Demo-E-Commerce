@@ -1,6 +1,6 @@
 .slider {
   height: calc(100vh - 80px);
-  width: 100vw;
+  width: calc(100vw - 20px);
   position: relative;
   overflow: hidden;
 }
