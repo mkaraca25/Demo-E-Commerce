@@ -2,5 +2,9 @@
   "name": "Demo-E-Commerce",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.2.0",
+    "@emotion/react": "^11.10.5"
+  }
 }
