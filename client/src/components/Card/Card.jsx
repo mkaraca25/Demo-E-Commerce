@@ -7,8 +7,8 @@ const Card = ({item}) => {
         <div className='card'>
             <div className="image">
                 {item?.attributes.isNew&&<span>New Season</span>}
-                <img src={process.env.REACT_APP_UPLOAD_URL+item.attributes?.img?.data?.attributes?.url} alt="Products" className='mainImg'/>
-                <img src={process.env.REACT_APP_UPLOAD_URL+item.attributes?.img2?.data?.attributes?.url} alt="Products" className='secondImg'/>
+                <img src={process.env.REACT_APP_UPLOAD_URL+item?.attributes?.img?.data?.attributes?.url} alt="Products" className='mainImg'/>
+                <img src={process.env.REACT_APP_UPLOAD_URL+item?.attributes?.img2?.data?.attributes?.url} alt="Products" className='secondImg'/>
             </div>
             <h2>{item?.attributes.title}</h2>
             <div className="prices">

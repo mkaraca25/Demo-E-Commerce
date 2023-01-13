@@ -4,29 +4,31 @@ import './Product.scss'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import BalanceIcon from '@mui/icons-material/Balance'
+import { useParams } from 'react-router-dom'
+import useFetch from '../../hooks/useFetch'
 
 const Product = () => {
-  const images=[
-    "https://images.pexels.com/photos/1972115/pexels-photo-1972115.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "https://images.pexels.com/photos/1163194/pexels-photo-1163194.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  ]
-  const [selectImg,setSelectedImg]=useState(0)
+  const id =useParams().id;
+  const {data,loading,error}=useFetch(`/products/${id}?populate=*`)
+  const [selectImg,setSelectedImg]=useState("img")
   const [quantity,setQuantity]=useState(1)
   return (
     <div className='product'>
+    {loading ? ("Loading"):(
+      <>
       <div className="left">
         <div className="images">
-          <img src={images[0]} alt="product" onClick={e=>setSelectedImg(0)}/>
-          <img src={images[1]} alt="product" onClick={e=>setSelectedImg(1)}/>
+          <img src={process.env.REACT_APP_UPLOAD_URL + data?.attributes?.img?.data?.attributes?.url} alt="product" onClick={e=>setSelectedImg("img")}/>
+          <img src={process.env.REACT_APP_UPLOAD_URL + data?.attributes?.img2?.data?.attributes?.url} alt="product" onClick={e=>setSelectedImg("img2")}/>
         </div>
         <div className="mainImg">
-          <img src={images[selectImg]} alt="product" />
+          <img src={process.env.REACT_APP_UPLOAD_URL + data?.attributes[selectImg]?.data?.attributes?.url} alt="product" />
         </div>
       </div>
       <div className="right">
-        <h1>Title</h1>
-        <span className='price'>$199</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, ex?</p>
+        <h1>{data?.attributes?.title}</h1>
+        <span className='price'>${data?.attributes?.price}</span>
+        <p>{data?.attributes?.desc}</p>
         <div className="quantity">
           <button onClick={()=>setQuantity(prev=>prev===1?1:prev-1)}>-</button>
           {quantity}
@@ -57,7 +59,8 @@ const Product = () => {
           <span>FAQ</span>
         </div>
       </div>
-    </div>
+   </>
+    )} </div>
   )
 }
 
