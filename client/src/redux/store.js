@@ -19,12 +19,12 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, cartSlice)
+const persistedSlice = persistReducer(persistConfig, cartSlice)
 
 export const store = configureStore({
   reducer: 
   {
-    cart:persistedReducer,
+    cart:persistedSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -34,5 +34,5 @@ export const store = configureStore({
     }),
 })
 
-export  let persistor = persistStore(store)
+export  let persistor = persistStore(store);
 

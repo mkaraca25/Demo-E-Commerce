@@ -8,16 +8,21 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
     "@reduxjs/toolkit": "^1.9.1",
+    "@stripe/react-stripe-js": "1.1.2",
+    "@stripe/stripe-js": "^1.46.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
+    "install": "^0.13.0",
+    "npm": "^9.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
@@ -45,5 +50,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-middleware": "^6.0.1",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-hot-middleware": "^2.25.3",
+    "webpack-node-externals": "^3.0.0"
   }
 }
